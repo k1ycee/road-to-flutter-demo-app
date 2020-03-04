@@ -1,3 +1,11 @@
+import 'dart:convert';
+
+List<Rates> cryptoFromJson(String str) =>
+    List<Rates>.from(json.decode(str).map((x) => Rates.fromJson(x)));
+
+String cryptoToJson(List<Rates> data) =>
+    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+
 class Rates {
     final String status;
     final int totalResults;
