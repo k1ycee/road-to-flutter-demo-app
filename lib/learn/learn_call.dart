@@ -1,3 +1,5 @@
+// import 'dart:convert';
+
 import 'dart:convert';
 
 import 'package:road_to_flutter_demo/learn/learn_model.dart';
@@ -8,12 +10,9 @@ class RatesProvider{
 
   Future<Rates> getRates() async{
     final call = await http.get(url);
-    print(call.toString());
-    if (call.statusCode == 200){
+    if(call.statusCode == 200){
       return Rates.fromJson(jsonDecode(call.body));
     }
-    else {
-      return null;
-    }
+    return null;
   }
 }
